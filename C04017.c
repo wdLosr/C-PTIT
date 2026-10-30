@@ -1,0 +1,40 @@
+// wdLosr - Le Loc
+#include <stdio.h>
+#include <math.h>
+
+int snt(int n)
+{
+    if (n <= 1)
+        return 0;
+    for (int i = 2; i <= sqrt(n); ++i)
+    {
+        if (n % i == 0)
+            return 0;
+    }
+    return 1;
+}
+int main()
+{
+    int a[101];
+    int cnt[1001] = {0};
+    int n, ct=0;
+    scanf("%d", &n);
+    for (int i = 0; i < n; ++i)
+    {
+        scanf("%d", &a[i]);
+        if (snt(a[i]))
+        {
+            ct++;
+        }
+        else a[i]=0;
+    }
+    printf("%d ", ct);
+    for (int i = 0; i < n; ++i)
+    {
+        if (a[i] != 0)
+        {
+            printf("%d ", a[i]);
+        }
+    }
+    return 0;
+}
